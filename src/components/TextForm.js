@@ -14,6 +14,9 @@ export function TextForm(props) {
   const handleonChange = (event) => {
     setText(event.target.value)
   }
+  const clearAll=()=>{
+    setText('')
+  }
   return (
     <>
       <div className="container my-3">
@@ -21,8 +24,9 @@ export function TextForm(props) {
         <div className="mb-3">
           <textarea className="form-control" value={text} onChange={handleonChange} id="myBox" rows="9" placeholder="Enter Text here"></textarea>
         </div>
-        <button className="btn btn-primary mx-2" onClick={upperClick}>Convert to Uppercase</button>
+        <button className="btn btn-primary mx-1" onClick={upperClick}>Convert to Uppercase</button>
         <button className="btn btn-primary mx-1" onClick={lowerClick}>Convert to Uppercase</button>
+        <button className="btn btn-primary mx-1" onClick={clearAll}>clear all</button>
       </div>
       <div className="container my-3">
         <h3>Text Details</h3>
