@@ -7,7 +7,7 @@ export default function Aboutus() {
   })
   const [btnText, setbtnText] = useState('Enable Dark mode')
   const colMode=()=>{
-    if(mystyle.color=="white")
+    if(mystyle.color==="white")
     {
       setmystyle({
         color:"black",
