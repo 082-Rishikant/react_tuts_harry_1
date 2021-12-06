@@ -6,27 +6,32 @@ export function TextForm(props) {
   function upperClick() {
     let newText = text.toUpperCase()
     setText(newText)
+    props.showAlert(" converted to uppercase", "success ");
   }
   const lowerClick = () => {
     let newText = text.toLowerCase()
     setText(newText)
+    props.showAlert(" converted to lowercase", "success ");
   }
   const handleonChange = (event) => {
     setText(event.target.value)
   }
   const clearAll=()=>{
     setText('')
+    props.showAlert(" all cleared", "success ");
   }
 
   const copyText=()=>{
     let textField=document.getElementById('myBox')
     textField.select()
     navigator.clipboard.writeText(textField.value);
+    props.showAlert(" Text copied", "success ");
   }
 
   const removeSpace=()=>{
     let textArr=text.split(/[ ]+/);
     setText(textArr.join(' '));
+    props.showAlert(" space removed", "success ");
   }
 
   return (
