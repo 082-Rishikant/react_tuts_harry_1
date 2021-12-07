@@ -14,11 +14,19 @@ function App() {
       setMode('light');
       document.body.style.backgroundColor='white';
       showAlert(" Light mode enabled", "success ");
+      document.title="TextUtils - Light Mode";
+      // setInterval(()=>{
+      //   document.title="Install TextUtils Now";
+      // }, '1000');
+      // setInterval(()=>{
+      //   document.title="TextUtils is Amazing";
+      // }, '1500');
     }
     else{
       setMode('dark');
       document.body.style.backgroundColor='#557c9f';
       showAlert(" dark mode enabled", "success ");
+      document.title="TextUtils - Dark Mode";
     }
   }
 
