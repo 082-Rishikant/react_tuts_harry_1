@@ -1,20 +1,27 @@
 // import React from 'react'
-// import Aboutus from './components/Aboutus.js';
+import Aboutus from './components/Aboutus.js';
 import Navbar from './components/Navbar.js'
-import {TextForm} from './components/TextForm.js'
+import { TextForm } from './components/TextForm.js'
 import React, { useState } from 'react'
 import Alert from './components/Alert.js';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
 function App() {
   const [mode, setMode] = useState('light');
   const [alert, setAlert] = useState(null);
 
   // Dark , Light Mode Controller
-  const toogleMode=()=>{
-    if(mode==="dark"){
+  const toogleMode = () => {
+    if (mode === "dark") {
       setMode('light');
-      document.body.style.backgroundColor='white';
+      document.body.style.backgroundColor = 'white';
       showAlert(" Light mode enabled", "success ");
-      document.title="TextUtils - Light Mode";
+      document.title = "TextUtils - Light Mode";
       // setInterval(()=>{
       //   document.title="Install TextUtils Now";
       // }, '1000');
@@ -22,35 +29,35 @@ function App() {
       //   document.title="TextUtils is Amazing";
       // }, '1500');
     }
-    else{
+    else {
       setMode('dark');
-      document.body.style.backgroundColor='#557c9f';
+      document.body.style.backgroundColor = '#557c9f';
       showAlert(" dark mode enabled", "success ");
-      document.title="TextUtils - Dark Mode";
+      document.title = "TextUtils - Dark Mode";
     }
   }
 
-  const showAlert=(exp, msg)=>{
+  const showAlert = (exp, msg) => {
     setAlert({
-      message:msg,
-      explanation:exp
+      message: msg,
+      explanation: exp
     })
-    setTimeout(()=>{
+    setTimeout(() => {
       setAlert(null);
     }, '1500');
   }
 
   return (
-    <>
-      {/* <Navbar about="about TextUtils"/> */}
-      {/* <Navbar/> */}
-      <Navbar title="TextUtils" about="about TextUtils" mode={mode} toogleMode={toogleMode}/>
-      <Alert alert={alert}/>
+    <Router>
+      <Navbar title="TextUtils" about="about TextUtils" mode={mode} toogleMode={toogleMode} />
+      <Alert alert={alert} />
       <div className="container my-4">
-        <TextForm heading="Enter Text to analyze below" mode={mode} showAlert={showAlert}/>
-        {/* <Aboutus/> */}
+        <Routes>
+          <Route path='/' element={<TextForm heading="Enter Text to analyze below" mode={mode} showAlert={showAlert} />} />
+          <Route path="/Aboutus" element={<Aboutus />} />
+        </Routes>
       </div>
-    </>
+    </Router>
   );
 }
 
