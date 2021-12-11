@@ -6,8 +6,10 @@ export default function Alert(props) {
     return word.charAt(0).toUpperCase()+word.slice(1);
   }
   return (
-    props.alert && <div className={`alert alert-${props.alert.message} alert-dismissible fade show`} role="alert">
+    <div style={{height:50}}>
+      {props.alert && <div className={`alert alert-${props.alert.message} alert-dismissible fade show`} role="alert">
       <strong>{capitalize(props.alert.message)}</strong>:{props.alert.explanation}
+      </div>}
     </div>
   )
 }
