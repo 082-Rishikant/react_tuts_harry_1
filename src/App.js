@@ -14,27 +14,25 @@ function App() {
   const [mode, setMode] = useState('light');
   const [alert, setAlert] = useState(null);
 
-  const removeBodyClasses=()=>{
-    document.body.classList.remove('bg-primary');
-    document.body.classList.remove('bg-success');
-    document.body.classList.remove('bg-dark');
-    document.body.classList.remove('bg-light');
-    document.body.classList.remove('bg-danger');
-  }
-
   // Dark , Light Mode Controller
-  const toogleMode = (cls) => {
-    removeBodyClasses();
-    document.body.classList.add('bg-'+cls);
+  const toogleMode = () => {
     if (mode === "dark") {
       setMode('light');
       document.body.style.backgroundColor = 'white';
       showAlert(" Light mode enabled", "success ");
+      document.title = "TextUtils - Light Mode";
+      // setInterval(()=>{
+      //   document.title="Install TextUtils Now";
+      // }, '1000');
+      // setInterval(()=>{
+      //   document.title="TextUtils is Amazing";
+      // }, '1500');
     }
     else {
       setMode('dark');
-      document.body.style.backgroundColor = '#557c9f';
+      document.body.style.backgroundColor = '#2e343a';
       showAlert(" dark mode enabled", "success ");
+      document.title = "TextUtils - Dark Mode";
     }
   }
 
@@ -50,7 +48,7 @@ function App() {
 
   return (
     <Router>
-      <Navbar title="TextUtils" about="about" mode={mode} toogleMode={toogleMode} />
+      <Navbar title="TextUtils" about="about TextUtils" mode={mode} toogleMode={toogleMode} />
       <Alert alert={alert} />
       <div className="container my-4">
         <Routes>

@@ -22,9 +22,7 @@ export function TextForm(props) {
   }
 
   const copyText=()=>{
-    let textField=document.getElementById('myBox')
-    textField.select()
-    navigator.clipboard.writeText(textField.value);
+    navigator.clipboard.writeText(text);
     props.showAlert(" Text copied", "success ");
   }
 
@@ -36,10 +34,10 @@ export function TextForm(props) {
 
   return (
     <>
-      <div className="container my-3 " style={{color:props.mode==='dark'?'white':'black',backgroundColor:props.mode==='dark'?'#557c9f':'white'}}>
+      <div className="container my-3 " style={{color:props.mode==='dark'?'white':'black',backgroundColor:props.mode==='dark'?'#2e343a':'white'}}>
         <h2>{props.heading}</h2>
         <div className="mb-3">
-          <textarea className="form-control" value={text} onChange={handleonChange} id="myBox" rows="9" placeholder="Enter Text here" style={{color:props.mode==='dark'?'white':'black',backgroundColor:props.mode==='dark'?'#285ba1':'white'}}></textarea>
+          <textarea className="form-control" value={text} onChange={handleonChange} id="myBox" rows="9" placeholder="Enter Text here" style={{color:props.mode==='dark'?'white':'black',backgroundColor:props.mode==='dark'?'#2e343a':'white'}}></textarea>
         </div>
         <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={upperClick}>Convert to Uppercase</button>
         <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={lowerClick}>Convert to Uppercase</button>
@@ -47,9 +45,9 @@ export function TextForm(props) {
         <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={copyText}>copy text</button>
         <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={removeSpace}>Remove extra space</button>
       </div>
-      <div className="container my-3" style={{color:props.mode==='dark'?'white':'black',backgroundColor:props.mode==='dark'?'#557c9f':'white'}}>
+      <div className="container my-3" style={{color:props.mode==='dark'?'white':'black',backgroundColor:props.mode==='dark'?'#2e343a':'white'}}>
         <h3>Text Details</h3>
-        <p>{text.split(' ').filter((element)=>{return element.length!==0}).length} words  {text.length} characters</p>
+        <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words  {text.length} characters</p>
         <p>{0.008*text.split(' ').filter((element)=>{return element.length!==0}).length} minutes read time</p>
         <h3>Text Preview</h3>
         <p>{text.length>0?text:'Nothing to preview!'}</p>

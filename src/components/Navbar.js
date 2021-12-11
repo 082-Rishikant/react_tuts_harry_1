@@ -15,7 +15,7 @@ export default function Navbar(props) {
 					<div className="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 							<li className="nav-item">
-								<Link className="nav-link active" aria-current="page" to="/">Home</Link>
+								<Link className="nav-link" aria-current="page" to="/">Home</Link>
 							</li>
 							<li className="nav-item">
 								<Link className="nav-link" to="/Aboutus">{props.about}</Link>
@@ -25,16 +25,10 @@ export default function Navbar(props) {
 							<input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
 							<button className="btn btn-primary" type="submit">Search</button>
 						</form> */}
-						<button className="bg-primary my-2 mx-2 rounded" style={{height:'30px', width:'30px', cursur:'pointer'}} onClick={()=>{props.toogleMode('primary')}}></button>
-						<button className="bg-success my-2 mx-2 rounded" style={{height:'30px', width:'30px', cursur:'pointer'}} onClick={()=>{props.toogleMode('success')}}></button>
-						<button className="bg-danger my-2 mx-2 rounded" style={{height:'30px', width:'30px', cursur:'pointer'}} onClick={()=>{props.toogleMode('danger')}}></button>
-						<button className="bg-dark my-2 mx-2 rounded" style={{height:'30px', width:'30px', cursur:'pointer'}} onClick={()=>{props.toogleMode('dark')}}></button>
-						<button className="bg-light my-2 mx-2 rounded" style={{height:'30px', width:'30px', cursur:'pointer'}} onClick={()=>{props.toogleMode('light')}}></button>
-
-						{/* <div className={`form-check form-switch text-${props.mode==='dark'?'light':'dark'}`}>
+						<div className={`form-check form-switch text-${props.mode==='dark'?'light':'dark'}`}>
 							<input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={props.toogleMode}/>
 							<label className ="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Darks Mode</label>
-						</div> */}
+						</div>
 					</div>
 				</div>
 			</nav>
